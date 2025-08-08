@@ -34,7 +34,7 @@ const server = http.createServer(app);
 // Socket.io setup
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: process.env.CORS_ORIGIN || 'https://clint-whatsap-clone.netlify.app',
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -46,7 +46,7 @@ connectDB();
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:3000",
+  origin: process.env.CORS_ORIGIN || 'https://clint-whatsap-clone.netlify.app',
   credentials: true
 }));
 
